@@ -1,2 +1,65 @@
-<h1>Plans#index</h1>
-<p>Find me in app/views/plans/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<div class="toppage">
+  <h1 class="top">カレンダー</h1>
+  <br>
+
+  <div class="row">
+    <div class="col-md-4">
+    	<div class="schedule">今後の予定一覧</div>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>タイトル</th>
+            <th>日程</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @plans.each do |plan| %>
+            <tr>
+              <td><%= link_to plan.title , plan %></td>
+              <td><%= plan.start_time.strftime("%m-%d") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= form_with(model: @plan, local: true) do |form| %>
+
+        <div class="title">
+          <div class="form-tag">タイトル</div>
+          <%= form.text_field :title %>
+        </div>
+
+
+        <div class="content">
+          <div class="form-tag">内容</div>
+          <%= form.text_field :content %>
+        </div>
+
+          <div class="time">
+          <div class="form-tag">時間</div>
+          <%= form.datetime_select :start_time %>
+        </div>
+
+       <div class="submit">
+          <%= form.submit %>
+       </div>
+      <% end %>
+      </div>
+
+    <br>
+    <br>
+    <div class="col-md-8">
+    <%= month_calendar events: @plans do |date, plans| %>
+      <%= date.day %>
+      <% plans.each do |plan| %>
+        <div>
+          <%= link_to plan.title, plan %>
+        </div>
+      <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>

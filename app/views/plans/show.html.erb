@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<div class="show">
+  <p>
+    <strong>タイトル</strong>
+    <%= @plan.title %>
+  </p>
+
+  <p>
+    <strong>内容</strong>
+    <%= @plan.content %>
+  </p>
+
+  <p>
+    <strong>日時</strong>
+    <%= @plan.start_time.strftime("%m-%d") %>
+  </p>
+
+  <%= link_to '編集', edit_plan_path(@plan) %>
+  <%= link_to '消去', @plan, method: :delete, data: { confirm: '本当に?' }, class: "btn btn-sm btn-danger" %>
+  <%= link_to '戻る', plans_path %>
+</div>
