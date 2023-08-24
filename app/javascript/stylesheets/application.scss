@@ -68,7 +68,8 @@
   }
 
   .today {
-    background: #FFFFC0
+    border-width: medium;
+    border-color: #FFFFC0
   }
 
   .past {
@@ -85,11 +86,7 @@
   }
   .current-month {}
 
-  .has-events {}
-}
-
-.toppage {
-  td {
-    color: black;
+  .has-events {
+    background: #D5EAD8;
   }
 }
