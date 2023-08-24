@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   def index
-    @plans = Plan.all
+    @plans = Plan.all.order("plans.start_time ASC")
     @plan = Plan.new
   end
 

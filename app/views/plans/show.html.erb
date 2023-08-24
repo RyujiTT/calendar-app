@@ -1,21 +1,29 @@
-<p id="notice"><%= notice %></p>
-<div class="show">
-  <p>
-    <strong>タイトル</strong>
-    <%= @plan.title %>
-  </p>
+<div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <h4 class="mt-3">予定詳細</h4>
+      <p id="notice"><%= notice %></p>
+      <div class="show">
+        <p>
+          <strong>タイトル</strong>
+          <%= @plan.title %>
+        </p>
 
-  <p>
-    <strong>内容</strong>
-    <%= @plan.content %>
-  </p>
+        <p>
+          <strong>内容</strong>
+          <%= @plan.content %>
+        </p>
 
-  <p>
-    <strong>日時</strong>
-    <%= @plan.start_time.strftime("%m-%d") %>
-  </p>
+        <p>
+          <strong>日時</strong>
+          <%= @plan.start_time.strftime("%m月%d日 %H:%M") %>
+        </p>
 
-  <%= link_to '編集', edit_plan_path(@plan) %>
-  <%= link_to '消去', @plan, method: :delete, data: { confirm: '本当に?' }, class: "btn btn-sm btn-danger" %>
-  <%= link_to '戻る', plans_path %>
+        <%= link_to '編集', edit_plan_path(@plan), class: "btn btn-sm btn-success" %>
+        <%= link_to '消去', @plan, method: :delete, data: { confirm: '本当に?' }, class: "btn btn-sm btn-danger" %>
+        <%= link_to '戻る', plans_path, class: "btn btn-sm btn-primary" %>
+      </div>
+    </div>
+  </div>
 </div>
+
