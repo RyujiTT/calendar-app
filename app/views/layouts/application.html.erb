@@ -11,6 +11,17 @@
   </head>
 
   <body>
+    <div class="container">
+      <% if notice %>
+        <div class="alert alert-success">
+          <%= notice %>
+        </div>
+      <% elsif alert %>
+        <div class="alert alert-danger">
+          <%= alert %>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

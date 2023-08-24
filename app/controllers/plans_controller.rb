@@ -17,6 +17,7 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
+    @plans = Plan.all.order("plans.start_time ASC")
   end
 
   def create
@@ -27,6 +28,7 @@ class PlansController < ApplicationController
 
   def edit
     @plan = Plan.find(params[:id])
+    @plans = Plan.all.order("plans.start_time ASC")
   end
 
   def update

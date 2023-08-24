@@ -1,24 +1,41 @@
-<%= form_with(model: @plan, local: true) do |form| %>
+<div class="container">
+  <h2 class="my-2">予定編集</h2>
+  <div class="row">
+    <div class="col-sm-12 col-md-4">
+      <%= form_with(model: @plan, local: true) do |f| %>
 
-  <div class="title">
-    <div class="form-tag">タイトル</div>
-    <%= form.text_field :title %>
+        <div class="form-group">
+          <%= f.label :タイトル, class: 'mb-2' %>
+          <%= f.text_field :title, class: 'form-control mb-3' %>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.label :内容, class: 'mb-2' %>
+          <%= f.text_field :content, class: 'form-control mb-3', rows: 5 %>
+        </div>
+
+          <div class="form-group">
+          <%= f.label :時間, class: 'mb-2' %> <br>
+          <%= f.datetime_select :start_time, class: 'form-control mb-3' %>
+        </div>
+
+       <div class="form-group mt-4">
+          <%= f.submit class: 'btn btn-success' %>
+        </div>
+
+      <% end %>
+    </div>
+    <div class="col-sm-12 col-md-8">
+      <%= month_calendar events: @plans do |date, plans| %>
+        <%= date.day %>
+        <% plans.each do |plan| %>
+          <div>
+            <%= link_to plan.title, plan %>
+            <%= plan.start_time.strftime("%H:%M") %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
-
-
-  <div class="content">
-    <div class="form-tag">内容</div>
-    <%= form.text_field :content %>
-  </div>
-
-    <div class="time">
-    <div class="form-tag">時間</div>
-    <%= form.datetime_select :start_time %>
-  </div>
-
-
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
-<% end %>
+</div>
