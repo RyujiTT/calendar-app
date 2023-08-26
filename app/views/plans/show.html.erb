@@ -15,7 +15,7 @@
           <td><%= @plan.start_time.strftime("%m-%d %H:%M") %></td>
           <td>
             <%= link_to '編集', edit_plan_path(@plan), class: "btn btn-sm btn-success" %>
-            <%= link_to '消去', @plan, method: :delete, data: { confirm: '本当に?' }, class: "btn btn-sm btn-danger" %>
+            <%= link_to '消去', @plan, method: :delete, data: { confirm: '本当に消去しますか?' }, class: "btn btn-sm btn-danger" %>
             <%= link_to '戻る', plans_path, class: "btn btn-sm btn-primary" %>
           </td>
         </tbody>
