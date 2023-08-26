@@ -21,8 +21,13 @@ class PlansController < ApplicationController
   end
 
   def create
-    Plan.create(plan_parameter)
-    redirect_to plans_path
+    @plan = Plan.create(plan_params)
+    if @plan.save
+      redirect_to plans_path
+    else
+      @plans = Plan.all.order("plans.start_time ASC")
+      render 'index'
+    end
   end
 
 
@@ -33,7 +38,7 @@ class PlansController < ApplicationController
 
   def update
     @plan = Plan.find(params[:id])
-    if @plan.update(plan_parameter)
+    if @plan.update(plan_params)
       redirect_to plans_path, notice: "編集しました"
     else
       render 'edit'
@@ -42,7 +47,7 @@ class PlansController < ApplicationController
 
   private
 
-  def plan_parameter
+  def plan_params
     params.require(:plan).permit(:title, :content, :start_time)
   end
 end
