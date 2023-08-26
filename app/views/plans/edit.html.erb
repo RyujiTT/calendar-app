@@ -27,15 +27,7 @@
       <% end %>
     </div>
     <div class="col-sm-12 col-md-8">
-      <%= month_calendar events: @plans do |date, plans| %>
-        <%= date.day %>
-        <% plans.each do |plan| %>
-          <div>
-            <%= link_to plan.title, plan %>
-            <%= plan.start_time.strftime("%H:%M") %>
-          </div>
-        <% end %>
-      <% end %>
+      <%= render 'simple_calendar/calendar_template', plans: @plans %>
     </div>
   </div>
 </div>

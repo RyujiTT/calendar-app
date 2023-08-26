@@ -1,0 +1,9 @@
+<%= month_calendar events: plans do |date, plans| %>
+  <%= date.day %>
+  <% plans.each do |plan| %>
+    <div>
+      <%= link_to plan.title, plan %>
+      <span style="color:black;"><%= plan.start_time.strftime("%H:%M") %></span>
+    </div>
+  <% end %>
+<% end %>
