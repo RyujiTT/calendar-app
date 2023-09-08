@@ -16,7 +16,7 @@ Calendar-App
 予定を立てた日付のところに色がつくのは見やすくていいと思ったので実装しました
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：macOS Ventura
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
